@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
-import { BorwserRouter as Router, Route, Link } from 'react-router-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 import App from './App.js'
+import reducers from '../reducers'
+
+const store = createStore(reducers)
 
 class Root extends Component {
   render() {
-    return <App />
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    )
   }
 }
 
