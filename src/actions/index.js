@@ -29,9 +29,12 @@ const receive_blogs = (currentPage, totalPage, total, items) => ({
 })
 
 export const getBlogs = page => {
+
     return dispatch => {
+
         dispatch(request_blogs())
-        return api.getBlogs({ page })
+
+        api.getBlogs({ page })
             .then(res => {
                 let { page, totalPage, total, data } = res
                 dispatch(receive_blogs(page, totalPage, total, data))

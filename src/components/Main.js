@@ -26,8 +26,8 @@ class Main extends Component {
       lis = blogs.items.map(item => (
         <li className="blog" key={item.id}>
           <div className="info">
-            <img src={item.user.avatar} alt="avatar" />
-            <span className="username">{item.user.username}</span>
+            <img src={item.user && item.user.avatar} alt="avatar" />
+            <span className="username">{item.user && item.user.username}</span>
           </div>
           <div className="blog-content">
             <h3 className="title">{item.title}</h3>
