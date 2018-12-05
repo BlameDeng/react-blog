@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './svg'
+import './svg.jsx'
 
 class Icon extends Component {
   render() {
