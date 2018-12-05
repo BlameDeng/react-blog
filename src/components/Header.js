@@ -1,22 +1,37 @@
 import React, { Component } from 'react'
 import '../style/Header.scss'
-import Icon from './ui/Icon'
+import { Button } from 'antd'
+
 class Header extends Component {
-  componentDidMount() {
-    console.log(this.props)
+  constructor(props) {
+    super(props)
+    this.state = {}
   }
+
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   return null
+  // }
+
+  componentDidMount() {
+    this.props.getBlogs(1)
+  }
+
   render() {
     const auth = this.props.auth
     if (auth) {
     } else {
       return (
-        <header className="header">
-          <Icon style={{ width: '30px', height: '30px', color: 'red' }} icon={'blog'} />
-          <div className="btns">
-            <div className="btn">登录</div>
-            <div className="btn">注册</div>
-          </div>
-        </header>
+        <div className="header-wrapper">
+          <header className="header">
+            <div className="logo">
+              <span className="text">多人共享博客</span>
+            </div>
+            <div className="btns">
+              <Button style={{ marginRight: '10px' }}>登录</Button>
+              <Button>注册</Button>
+            </div>
+          </header>
+        </div>
       )
     }
   }
