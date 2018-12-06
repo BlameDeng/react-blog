@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../style/Blog.scss'
 import * as api from '../api'
 import { message } from 'antd'
+import marked from 'marked'
 import formatDate from '../utils/formatDate'
 
 class Blog extends Component {
@@ -60,7 +61,10 @@ class Blog extends Component {
                 </div>
               </div>
             </div>
-            <p className="content"> {blog.content} </p>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: marked(blog.content) }}
+            />
           </div>
         ) : (
           ''

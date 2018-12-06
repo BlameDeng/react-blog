@@ -40,6 +40,10 @@ class Header extends Component {
     this.props.history.push('/user/' + this.props.user.id)
   }
 
+  handleClickIcon() {
+    this.props.history.push('/article/' + -1)
+  }
+
   render() {
     const { user } = this.props
     return (
@@ -51,7 +55,7 @@ class Header extends Component {
           </div>
           {user ? (
             <div className="user-info">
-              <Icon type="form" />
+              <Icon type="form" onClick={this.handleClickIcon.bind(this)} />
               <Popover
                 placement="bottom"
                 trigger="click"

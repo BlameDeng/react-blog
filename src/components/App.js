@@ -7,6 +7,7 @@ import Home from '../containers/Home'
 import Auth from '../containers/Auth'
 import Detail from '../containers/Detail'
 import User from '../containers/User'
+import Article from '../containers/Article'
 import * as api from '../api'
 import { login } from '../actions'
 
@@ -27,7 +28,8 @@ class App extends Component {
           <Route exact path="/:page?" component={Home} />
           <Route path="/auth/:tab" component={Auth} />
           <Route path="/blog/:id" component={Detail} />
-          <Route path="/user/:id/:page?" component={User} />
+          <Route path="/user/:id" component={User} />
+          <Route path="/article/:id?" component={Article} />
         </div>
       </Router>
     )
