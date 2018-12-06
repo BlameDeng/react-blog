@@ -48,3 +48,15 @@ export const signUp = ({ username, password }) => {
 export const login = ({ username, password }) => {
     return request(AUTH.LOGIN, 'POST', { username, password })
 }
+
+export const logout = () => {
+    return request(AUTH.LOGOUT)
+}
+
+export const checkLogin = () => {
+    return request(AUTH.GET_INFO)
+}
+
+export const getBlogById = id => {
+    return request(BLOG.GET_DETAIL.replace(':blogId', id))
+}

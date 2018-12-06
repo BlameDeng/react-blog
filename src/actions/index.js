@@ -1,6 +1,6 @@
 import * as api from '../api'
 
-export const login = (user) => ({
+export const login = user => ({
     type: 'SET_USER',
     user
 })

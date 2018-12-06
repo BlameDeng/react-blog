@@ -15,8 +15,16 @@ class Main extends Component {
   //     return blogs
   //   }
 
+  componentDidMount() {
+    this.props.getBlogs(1)
+  }
+  
   onChange(page) {
     this.props.getBlogs(page)
+  }
+
+  handleClickBlog(id) {
+    this.props.history.push('/blog/' + id)
   }
 
   render() {
@@ -29,7 +37,10 @@ class Main extends Component {
             <img src={item.user && item.user.avatar} alt="avatar" />
             <span className="username">{item.user && item.user.username}</span>
           </div>
-          <div className="blog-content">
+          <div
+            className="blog-content"
+            onClick={this.handleClickBlog.bind(this, item.id)}
+          >
             <h3 className="title">{item.title}</h3>
             <span className="time">{formatDate(item.createdAt)}</span>
             <div className="description">{item.description}</div>

@@ -1,30 +1,28 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Header from '../components/Header'
-import Main from '../components/Main'
+import Blog from '../components/Blog'
 import Footer from '../components/Footer'
-import { getBlogs, logout } from '../actions'
-
-const Home = props => {
+import { logout } from '../actions'
+const Detail = props => {
   return (
-    <div className="home">
-      <Header {...props} /> <Main {...props} />
+    <div className="detail">
+      <Header {...props} />
+      <Blog {...props} />
       <Footer />
     </div>
   )
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
-  blogs: state.blogs
+  user: state.user
 })
 
 const mapDispatchToProps = dispatch => ({
-  getBlogs: page => dispatch(getBlogs(page)),
   logout: () => dispatch(logout())
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home)
+)(Detail)

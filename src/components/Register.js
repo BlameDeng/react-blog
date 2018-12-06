@@ -47,10 +47,19 @@ class Register extends Component {
     api
       .signUp({ username, password })
       .then(res => {
-        console.log(res)
+        message.success(res.msg, 2, () => {
+          this.props.login(res.data)
+          this.setState({
+            isSignUping: false
+          })
+          this.props.history.push('/')
+        })
       })
       .catch(err => {
         message.error(err.msg, 2)
+        this.setState({
+          isSignUping: false
+        })
       })
   }
 

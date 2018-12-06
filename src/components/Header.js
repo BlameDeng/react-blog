@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import '../style/Header.scss'
-import { Popover, Button, Icon } from 'antd'
+import { Popover, Button, Icon, message } from 'antd'
+import * as api from '../api'
 
 class Header extends Component {
   constructor(props) {
@@ -15,14 +16,24 @@ class Header extends Component {
   //   return null
   // }
 
-  componentDidMount() {
-    this.props.getBlogs(1)
-  }
-
   handleVisibleChange(visible) {
     this.setState({
       visible
     })
+  }
+
+  handleLogout() {
+    this.setState({ visible: false })
+    api
+      .logout()
+      .then(res => {
+        this.props.logout()
+        message.info(res.msg, 2)
+      })
+      .catch(err => {
+        this.props.logout()
+        message.error(err.msg, 2)
+      })
   }
 
   render() {
@@ -31,7 +42,7 @@ class Header extends Component {
       <div className="header-wrapper">
         <header className="header">
           <div className="logo">
-          <img src={require('../style/img/logo.png')} alt="logo"/>
+            <img src={require('../style/img/logo.png')} alt="logo" />
             <span className="text">多人共享博客</span>
           </div>
           {user ? (
@@ -41,10 +52,13 @@ class Header extends Component {
                 placement="bottom"
                 trigger="click"
                 onVisibleChange={this.handleVisibleChange.bind(this)}
+                visible={this.state.visible}
                 content={
                   <ul style={ulStyle}>
                     <li style={liStyle}>我的博客</li>
-                    <li style={liStyle}>注销登录</li>
+                    <li style={liStyle} onClick={this.handleLogout.bind(this)}>
+                      注销登录
+                    </li>
                   </ul>
                 }
               >

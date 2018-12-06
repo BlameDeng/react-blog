@@ -1,0 +1,38 @@
+.blog {
+    width: 800px;
+    margin: 20px auto;
+    >.wrapper {
+        width: 100%;
+        >.title {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            >img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                margin-right: 10px;
+                flex-shrink: 0;
+            }
+            >.title-inner {
+                >h3 {
+                    cursor: default;
+                }
+                >.info {
+                    >.username {
+                        font-size: 12px;
+                        margin-right: 10px;
+                        color: #1890ff;
+                        cursor: pointer;
+                    }
+                    >.time {
+                        cursor: default;
+                    }
+                }
+            }
+        }
+        >.content {
+            margin-top: 14px;
+        }
+    }
+}
