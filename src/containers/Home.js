@@ -5,9 +5,9 @@ import Main from '../components/Main'
 import Footer from '../components/Footer'
 import { getBlogs } from '../actions'
 
-const Index = props => {
+const Home = props => {
   return (
-    <div className="index">
+    <div className="home">
       <Header {...props} /> <Main {...props} />
       <Footer />
     </div>
@@ -26,4 +26,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Index)
+)(Home)

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import '../style/Header.scss'
 import { Button } from 'antd'
 
@@ -27,8 +28,12 @@ class Header extends Component {
               <span className="text">多人共享博客</span>
             </div>
             <div className="btns">
-              <Button style={{ marginRight: '10px' }}>登录</Button>
-              <Button>注册</Button>
+              <Button style={{ marginRight: '10px' }}>
+                <Link to="/auth/login">登录</Link>
+              </Button>
+              <Button>
+                <Link to="/auth/register">注册</Link>
+              </Button>
             </div>
           </header>
         </div>

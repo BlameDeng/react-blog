@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-// import { HashRouter as Router, Route, Link } from 'react-router-dom'
+import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import '../style/App.scss'
 // import AuthRoute from './AuthRoute'
-import Index from '../containers/Index'
+import Home from '../containers/Home'
+import Auth from '../containers/Auth'
 
 // function Home() {
 //   return (
@@ -23,9 +24,12 @@ import Index from '../containers/Index'
 class App extends Component {
   render() {
     return (
-      <div className="app">
-        <Index />
-      </div>
+      <Router>
+        <div className="app">
+          <Route exact path="/" component={Home} />
+          <Route exact path="/auth/:tab" component={Auth} />
+        </div>
+      </Router>
     )
   }
 }

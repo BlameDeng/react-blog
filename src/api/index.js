@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const AUTH = {
-    REGITER: '/auth/register',
+    SIGNUP: '/auth/register',
     LOGIN: '/auth/login',
     LOGOUT: '/auth/logout',
     GET_INFO: '/auth'
@@ -39,4 +39,8 @@ function request(url, type = 'GET', data = {}) {
 
 export const getBlogs = ({ page = 1 } = { page: 1 }) => {
     return request(BLOG.GET_BLOGS, 'GET', { page })
+}
+
+export const signUp = ({ username, password }) => {
+    return request(AUTH.SIGNUP, 'POST', { username, password })
 }
