@@ -3,11 +3,7 @@ import ReduxThunk from 'redux-thunk'
 import reducers from './reducers'
 const initStore = () => {
     const state = {
-        auth: false,
-        user: {
-            isFetching: false,
-            userInfo: null
-        },
+        user: null,
         userBlogs: {
             isFetching: false,
             currentPage: 0,

@@ -44,3 +44,7 @@ export const getBlogs = ({ page = 1 } = { page: 1 }) => {
 export const signUp = ({ username, password }) => {
     return request(AUTH.SIGNUP, 'POST', { username, password })
 }
+
+export const login = ({ username, password }) => {
+    return request(AUTH.LOGIN, 'POST', { username, password })
+}

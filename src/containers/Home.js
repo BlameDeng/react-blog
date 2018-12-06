@@ -15,7 +15,7 @@ const Home = props => {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth,
+  user: state.user,
   blogs: state.blogs
 })
 

@@ -1,13 +1,13 @@
 import * as api from '../api'
 
-export const login = () => ({
-    type: 'setAuth',
-    auth: true
+export const login = (user) => ({
+    type: 'SET_USER',
+    user
 })
 
 export const logout = () => ({
-    type: 'setAuth',
-    auth: false
+    type: 'SET_USER',
+    user: null
 })
 
 const request_blogs = () => ({
@@ -29,11 +29,8 @@ const receive_blogs = (currentPage, totalPage, total, items) => ({
 })
 
 export const getBlogs = page => {
-
     return dispatch => {
-
         dispatch(request_blogs())
-
         api.getBlogs({ page })
             .then(res => {
                 let { page, totalPage, total, data } = res
