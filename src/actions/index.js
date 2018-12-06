@@ -40,3 +40,39 @@ export const getBlogs = page => {
             })
     }
 }
+
+const request_userBlogs = () => ({
+    type: 'GET_USERBLOGS',
+    userBlogs: {
+        isFetching: true
+    }
+})
+
+const receive_userBlogs = (currentPage, totalPage, total, items) => ({
+    type: 'GET_USERBLOGS',
+    userBlogs: {
+        isFetching: false,
+        currentPage,
+        totalPage,
+        total,
+        items
+    }
+})
+
+export const getUserBlogs = (id, page) => {
+    return dispatch => {
+        dispatch(request_userBlogs())
+        api.getUserBlogs({ id, page })
+            .then(res => {
+                let { page, totalPage, total, data } = res
+                dispatch(receive_userBlogs(page, totalPage, total, data))
+            }, err => {
+                console.log(err)
+            })
+    }
+}
+
+export const deleteBlog = id => ({
+    type: 'DELETE',
+    id
+})

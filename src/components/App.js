@@ -6,23 +6,9 @@ import '../style/App.scss'
 import Home from '../containers/Home'
 import Auth from '../containers/Auth'
 import Detail from '../containers/Detail'
+import User from '../containers/User'
 import * as api from '../api'
 import { login } from '../actions'
-// function Home() {
-//   return (
-//     <div>
-//       <h2> Home页面 </h2>
-//     </div>
-//   )
-// }
-
-// function About() {
-//   return (
-//     <div>
-//       <h2> About页面 </h2>
-//     </div>
-//   )
-// }
 
 class App extends Component {
   componentDidMount() {
@@ -38,35 +24,15 @@ class App extends Component {
     return (
       <Router>
         <div className="app">
-          <Route exact path="/" component={Home} />
-          <Route exact path="/auth/:tab" component={Auth} />
-          <Route exact path="/blog/:id" component={Detail} />
+          <Route exact path="/:page?" component={Home} />
+          <Route path="/auth/:tab" component={Auth} />
+          <Route path="/blog/:id" component={Detail} />
+          <Route path="/user/:id/:page?" component={User} />
         </div>
       </Router>
     )
   }
 }
-// class App extends Component {
-//   render() {
-//     return (
-//       <Router>
-//         <div>
-//           <AuthRoute />
-//           <ul>
-//             <li>
-//               <Link to="/"> Home </Link>
-//             </li>
-//             <li>
-//               <Link to="/about"> About </Link>
-//             </li>
-//           </ul>
-//           <Route exact path="/" component={Home} />
-//           <Route path="/about" component={About} />
-//         </div>
-//       </Router>
-//     )
-//   }
-// }
 
 const mapStateToProps = state => ({
   user: state.user

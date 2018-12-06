@@ -1,4 +1,11 @@
-.app {
-    color: rgba(0, 0, 0, 0.65);
-    padding-bottom: 60px;
+#root {
+    width: 100%;
+    height: 100%;
+    >.app {
+        color: rgba(0, 0, 0, 0.65);
+        width: 100%;
+        min-height: 100%;
+        padding-bottom: 60px;
+        overflow-y: scroll;
+    }
 }

@@ -26,19 +26,31 @@ class Blog extends Component {
       })
   }
 
+  handleClickUsername(id) {
+    this.props.history.push('/user/' + id)
+  }
+
   render() {
     let blog = this.state.blog
     return (
-      <div className="blog">
+      <div className="detail-blog">
         {blog ? (
           <div className="wrapper">
             <div className="title">
               <img src={blog.user && blog.user.avatar} alt="avatar" />
               <div className="title-inner">
-                <h3>{blog.title}</h3>
+                <h3> {blog.title} </h3>
                 <div className="info">
                   {blog.user ? (
-                    <span className="username">{blog.user.username}</span>
+                    <span
+                      className="username"
+                      onClick={this.handleClickUsername.bind(
+                        this,
+                        blog.user.id
+                      )}
+                    >
+                      {blog.user.username}
+                    </span>
                   ) : (
                     ''
                   )}
@@ -48,7 +60,7 @@ class Blog extends Component {
                 </div>
               </div>
             </div>
-            <p className="content">{blog.content}</p>
+            <p className="content"> {blog.content} </p>
           </div>
         ) : (
           ''

@@ -60,3 +60,11 @@ export const checkLogin = () => {
 export const getBlogById = id => {
     return request(BLOG.GET_DETAIL.replace(':blogId', id))
 }
+
+export const getUserBlogs = ({ id, page = 1 }) => {
+    return request(BLOG.GET_BLOGS, 'GET', { userId: id, page })
+}
+
+export const deleteBlog = (id) => {
+    return request(BLOG.DELETE.replace(':blogId', id), 'DELETE')
+}

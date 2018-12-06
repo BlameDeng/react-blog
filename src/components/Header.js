@@ -12,9 +12,9 @@ class Header extends Component {
     }
   }
 
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   return null
-  // }
+  handleClickLogo() {
+    this.props.history.push('/')
+  }
 
   handleVisibleChange(visible) {
     this.setState({
@@ -36,12 +36,16 @@ class Header extends Component {
       })
   }
 
+  handleClickMyBlogs() {
+    this.props.history.push('/user/' + this.props.user.id)
+  }
+
   render() {
     const { user } = this.props
     return (
       <div className="header-wrapper">
         <header className="header">
-          <div className="logo">
+          <div className="logo" onClick={this.handleClickLogo.bind(this)}>
             <img src={require('../style/img/logo.png')} alt="logo" />
             <span className="text">多人共享博客</span>
           </div>
@@ -55,7 +59,12 @@ class Header extends Component {
                 visible={this.state.visible}
                 content={
                   <ul style={ulStyle}>
-                    <li style={liStyle}>我的博客</li>
+                    <li
+                      style={liStyle}
+                      onClick={this.handleClickMyBlogs.bind(this)}
+                    >
+                      我的博客
+                    </li>
                     <li style={liStyle} onClick={this.handleLogout.bind(this)}>
                       注销登录
                     </li>
