@@ -7,8 +7,8 @@ class Register extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: 'hunger',
-      password: '123456',
+      username: '',
+      password: '',
       isLogining: false
     }
   }
