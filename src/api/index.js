@@ -68,3 +68,11 @@ export const getUserBlogs = ({ id, page = 1 }) => {
 export const deleteBlog = (id) => {
     return request(BLOG.DELETE.replace(':blogId', id), 'DELETE')
 }
+
+export const createBlog = (title, description, content) => {
+    return request(BLOG.CREATE, 'POST', { title, description, content })
+}
+
+export const patchBlog = (id, title, description, content) => {
+    return request(BLOG.UPDATE.replace(':blogId', id), 'PATCH', { title, description, content })
+}

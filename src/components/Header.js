@@ -41,7 +41,7 @@ class Header extends Component {
   }
 
   handleClickIcon() {
-    this.props.history.push('/article/' + -1)
+    this.props.history.push('/article/add')
   }
 
   render() {

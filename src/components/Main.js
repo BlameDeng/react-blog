@@ -70,7 +70,7 @@ class Main extends Component {
     if (type === 'scan') {
       this.props.history.push('/blog/' + id)
     } else if (type === 'edit') {
-    } else if (type === 'delete') {
+      this.props.history.push('/article/' + id)
     }
   }
 
@@ -97,7 +97,7 @@ class Main extends Component {
       <main className="main">
         {!getBlogs && (
           <h2 className="title" style={{ padding: '10px' }}>
-            {self ? '我' : '他 / 她'}发表的博客
+            {self ? '我' : '他 / 她'} 发表的博客
           </h2>
         )}
         <ul className="list">
@@ -154,16 +154,7 @@ class Main extends Component {
                       onConfirm={this.handleConfirm.bind(this, item.id)}
                       onCancel={this.handleCancle.bind(this)}
                     >
-                      <Button
-                        onClick={this.handleClickButton.bind(
-                          this,
-                          'delete',
-                          item.id
-                        )}
-                        type="danger"
-                      >
-                        删除
-                      </Button>
+                      <Button type="danger">删除 </Button>
                     </Popconfirm>
                   </div>
                 ) : (

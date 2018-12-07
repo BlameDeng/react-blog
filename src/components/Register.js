@@ -47,7 +47,7 @@ class Register extends Component {
     api
       .signUp({ username, password })
       .then(res => {
-        message.success(res.msg, 2, () => {
+        message.success('注册成功', 2, () => {
           this.props.login(res.data)
           this.setState({
             isSignUping: false
